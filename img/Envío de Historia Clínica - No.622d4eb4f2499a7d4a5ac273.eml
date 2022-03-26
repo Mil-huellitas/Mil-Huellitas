@@ -1,0 +1,2073 @@
+Delivered-To: danielaovallep@gmail.com
+Received: by 2002:a4f:c5c9:0:0:0:0:0 with SMTP id w9csp1395516ivk;
+        Sat, 12 Mar 2022 18:24:25 -0800 (PST)
+X-Google-Smtp-Source: ABdhPJz+AhZTzh/h5lOXqsR0SdjMiIlvT286p8pVAUEOCEJXDe3ue9Vfdi1qIMA002pFpVFhv8Uy
+X-Received: by 2002:a65:6794:0:b0:36c:460e:858d with SMTP id e20-20020a656794000000b0036c460e858dmr14494530pgr.418.1647138264923;
+        Sat, 12 Mar 2022 18:24:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1647138264; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gxGk4wNPdRzA52wfPUfTMUOQVvQy2iUjlFBlrR3arzo7cV17fgKk1mPKcgSg8KeQSU
+         JsZzDO7abJi6hHd9/jtjIRvIzqMnhTndISqbyfrlOyUb3sG+CF8PUTNJzqaRK28s4Mco
+         lsg1ydMIo3fsI558lsoKU2gohCXkq96FfSEly+N+cp0A0p/bTjGjGa5UPKQ7TxD6ubM8
+         NOaddekRrxqlhn30wqhyGrmDmMyW1X0PKPbgmcIlUWOX4wlsjjTXQwI6gB8ryXotrmrD
+         IeEgG0b9sEJkgdoAnXj4e5+/TFyxWeZb48Mbtd/cC0fR9sz2yY6LGw0E3Tw7Ksf5bIsO
+         hqMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:message-id:content-transfer-encoding:mime-version
+         :subject:cc:to:from:dkim-signature;
+        bh=gw4BrDZaBz00fhLaUhXPRdiGSYpQ86j//4giVXWqJQw=;
+        b=dkESCeyQQempu8nqWhjlXFf7GYLRbbb0te3Tv+dStBidFKJJu52wwLDGW73pz1y9gh
+         9AwC4wWxTTiXFAtslsjSpRvsqkIB3xbcozti9Y/zHW3vDxCw0dmvF6NRH9zN8t2Frh7X
+         s8aeyTtfWgJbBtRDdoYXYXql8uXIGu37WRn95v4w0TxiaY3iAiiOipW5KDTvuEQi7bIj
+         71XlTNbmu2lfZnch1cCsIvTEnDSwQAw8H1WMP40LpxfNrsuf5ekHTeNqMsRoveOtxHB9
+         JzOkyh0DcUkIAEG/9CfHQaXKGbuDXxJJnHPVuEwl7TqEB9pTHDvcHZrUUznFSR8RKXaP
+         yK5g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b=WXN39XEL;
+       spf=pass (google.com: domain of 0101017f81175511-a5321152-fd50-4174-bf26-0056a3ee22b7-000000@us-west-2.amazonses.com designates 54.240.27.188 as permitted sender) smtp.mailfrom=0101017f81175511-a5321152-fd50-4174-bf26-0056a3ee22b7-000000@us-west-2.amazonses.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=movet.co
+Return-Path: <0101017f81175511-a5321152-fd50-4174-bf26-0056a3ee22b7-000000@us-west-2.amazonses.com>
+Received: from a27-188.smtp-out.us-west-2.amazonses.com (a27-188.smtp-out.us-west-2.amazonses.com. [54.240.27.188])
+        by mx.google.com with ESMTPS id q12-20020a170902f78c00b0014c91395314si11825983pln.60.2022.03.12.18.24.24
+        for <danielaovallep@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 12 Mar 2022 18:24:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0101017f81175511-a5321152-fd50-4174-bf26-0056a3ee22b7-000000@us-west-2.amazonses.com designates 54.240.27.188 as permitted sender) client-ip=54.240.27.188;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@amazonses.com header.s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx header.b=WXN39XEL;
+       spf=pass (google.com: domain of 0101017f81175511-a5321152-fd50-4174-bf26-0056a3ee22b7-000000@us-west-2.amazonses.com designates 54.240.27.188 as permitted sender) smtp.mailfrom=0101017f81175511-a5321152-fd50-4174-bf26-0056a3ee22b7-000000@us-west-2.amazonses.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=movet.co
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=gdwg2y3kokkkj5a55z2ilkup5wp5hhxx; d=amazonses.com; t=1647138264;
+	h=From:To:Cc:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=RdCa9sT7hXe3+n9gBcvhRbRAPt4HHhVKIqClb22LRlU=;
+	b=WXN39XEL0vhg/yi6fKu1/BAQYRUHGhUdtNYg+/cjgjXeBNQABlZyyZ0cbkUXrEFY
+	6NXrxczeoYoDngYg5PnE/f4XDFQ4IskkIBwuZein9kLep2rekUHcYicM/WFL2tRJot9
+	b+yao5e51lXqA/o9M/EU2XoRCIYz/fwVMZCTjX5U=
+From: info@movet.co
+To: danielaovallep@gmail.com
+Cc: farmacia@movet.co, sac@movet.co, cuentas@movet.co
+Subject: =?UTF-8?Q?Env=C3=ADo_de_Historia_Cl=C3=ADnica_-?=
+ =?UTF-8?Q?_No.622d4eb4f2499a7d4a5ac273?=
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <0101017f81175511-a5321152-fd50-4174-bf26-0056a3ee22b7-000000@us-west-2.amazonses.com>
+Date: Sun, 13 Mar 2022 02:24:24 +0000
+Feedback-ID: 1.us-west-2.SY/jTouS6ZMhKYEIIEupJ+NU4+vvQAMc1+ye9gptYJw=:AmazonSES
+X-SES-Outgoing: 2022.03.13-54.240.27.188
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns=3D"http://www.w3.org/1999/xhtml"
+  xmlns:o=3D"urn:schemas-microsoft-com:office:office"
+  style=3D"
+    width: 100%;
+    font-family: arial, 'helvetica neue', helvetica, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    padding: 0;
+    margin: 0;
+  "
+>
+  <head>
+    <meta charset=3D"UTF-8" />
+    <meta content=3D"width=3Ddevice-width, initial-scale=3D1" name=3D"viewp=
+ort" />
+    <meta name=3D"x-apple-disable-message-reformatting" />
+    <meta http-equiv=3D"x-ua-compatible" content=3D"IE=3Dedge" />
+    <meta content=3D"telephone=3Dno" name=3D"format-detection" />
+    <link
+      href=3D"https://fonts.googleapis.com/css2?family=3DPoppins:wght@600;7=
+00&amp;display=3Dswap"
+      rel=3D"stylesheet"
+    />
+    <link rel=3D"preconnect" href=3D"https://fonts.gstatic.com" />
+    <link
+      href=3D"https://fonts.googleapis.com/css2?family=3DPoppins:wght@600;7=
+00&amp;family=3DWork+Sans:wght@400;600;700&amp;display=3Dswap"
+      rel=3D"stylesheet"
+    />
+    <title>mail-template-movet-service-finished</title>
+    <!--[if (mso 16)]>
+      <style>
+        a {
+          text-decoration: none;
+        }
+      </style>
+    <![endif]-->
+    <!--[if gte mso 9]>
+      <style>
+        sup {
+          font-size: 100% !important;
+        }
+      </style>
+    <![endif]-->
+    <!--[if gte mso 9]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG> </o:AllowPNG>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+    <![endif]-->
+
+    <style type=3D"text/css">
+      #outlook a {
+        padding: 0;
+      }
+      .ExternalClass {
+        width: 100%;
+      }
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+      .es-button {
+        mso-style-priority: 100 !important;
+        text-decoration: none !important;
+      }
+      a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+      .es-desk-hidden {
+        display: none;
+        float: left;
+        overflow: hidden;
+        width: 0;
+        max-height: 0;
+        line-height: 0;
+        mso-hide: all;
+      }
+      .text-padding-left {
+        padding-left: 20px;
+      }
+      .text-padding-right {
+        padding-right: 20px;
+      }
+      .table-meds{
+        margin: 20px 0;
+        font-size: 14px;
+        text-align: center;
+        font-weight: 900;
+        color: #190080;
+      }
+      .table-meds-body{
+        font-weight: 400;
+      }
+      .table-meds-body tr,td{
+        padding-bottom: 10px;
+      }
+      @media only screen and (max-width: 600px) {
+        p,
+        ul li,
+        ol li,
+        a {
+          font-size: 16px !important;
+          line-height: 150% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h1 {
+          font-size: 30px !important;
+          text-align: center;
+          line-height: 120%;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h2 {
+          font-size: 26px !important;
+          text-align: center;
+          line-height: 120%;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h3 {
+          font-size: 20px !important;
+          text-align: center;
+          line-height: 120%;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h1 a {
+          font-size: 30px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h2 a {
+          font-size: 26px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        h3 a {
+          font-size: 20px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-menu td a {
+          font-size: 16px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-header-body p,
+        .es-header-body ul li,
+        .es-header-body ol li,
+        .es-header-body a {
+          font-size: 16px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-footer-body p,
+        .es-footer-body ul li,
+        .es-footer-body ol li,
+        .es-footer-body a {
+          font-size: 10px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-infoblock p,
+        .es-infoblock ul li,
+        .es-infoblock ol li,
+        .es-infoblock a {
+          font-size: 12px !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        [class=3D"gmail-fix"] {
+          display: none !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-m-txt-c,
+        .es-m-txt-c h1,
+        .es-m-txt-c h2,
+        .es-m-txt-c h3 {
+          text-align: center !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-m-txt-r,
+        .es-m-txt-r h1,
+        .es-m-txt-r h2,
+        .es-m-txt-r h3 {
+          text-align: right !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-m-txt-l,
+        .es-m-txt-l h1,
+        .es-m-txt-l h2,
+        .es-m-txt-l h3 {
+          text-align: left !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-m-txt-r img,
+        .es-m-txt-c img,
+        .es-m-txt-l img {
+          display: inline !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-button-border {
+          display: block !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-btn-fw {
+          border-width: 10px 0 !important;
+          text-align: center !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-adaptive table,
+        .es-btn-fw,
+        .es-btn-fw-brdr,
+        .es-left,
+        .es-right {
+          width: 100% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-content table,
+        .es-header table,
+        .es-footer table,
+        .es-content,
+        .es-footer,
+        .es-header,
+        .es-content-body,
+        .es-wrapper {
+          width: 100% !important;
+          overflow-x: hidden;
+        }
+        .es-wrapper-color {
+          width: auto;
+          overflow-x: hidden;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .es-adapt-td {
+          display: block !important;
+          width: 100% !important;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .es-adapt-td {
+          display: block !important;
+          width: 100% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .adapt-img {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .adapt-img-logo {
+          width: 50px !important;
+          height: auto !important;
+        }
+
+        .adapt-img-social {
+          width: 35px !important;
+          height: auto !important;
+        }
+        .adapt-img-market {
+          width: 100px !important;
+          height: auto !important;
+          margin-bottom: 15px;
+          margin-top: 15px;
+        }
+        .market-img-container {
+          padding: 0;
+          margin: 0;
+          padding-top: 20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .td-text {
+          padding: 0;
+          margin: 0;
+          padding-top: 0px !important;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        .td-footer {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .es-m-p0 {
+          padding: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-m-p0r {
+          padding-right: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-m-p0l {
+          padding-left: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-m-p0t {
+          padding-top: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-m-p0b {
+          padding-bottom: 0 !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-mobile-hidden,
+        .es-hidden {
+          display: none !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        tr.es-desk-hidden,
+        td.es-desk-hidden,
+        table.es-desk-hidden {
+          width: auto !important;
+          overflow: visible !important;
+          float: none !important;
+          max-height: inherit !important;
+          line-height: inherit !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        tr.es-desk-hidden {
+          display: table-row !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table.es-desk-hidden {
+          display: table !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        td.es-desk-menu-hidden {
+          display: table-cell !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .es-menu td {
+          width: 1% !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table.es-table-not-adapt,
+        .esd-block-html table {
+          width: auto !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table.es-social {
+          display: inline-block !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        table.es-social td {
+          display: inline-block !important;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        a.es-button,
+        button.es-button {
+          font-size: 20px !important;
+          display: block !important;
+          border-width: 10px 0 !important;
+        }
+      }
+      .header {
+        margin: 0;
+        padding: 60px 20px 60px 20px;
+        background-color: #ffd0d8;
+      }
+      @media only screen and (max-width: 600px) {
+        .header {
+        margin: 0;
+        padding: 60px 20px 60px 20px;
+        background-color: #ffd0d8;
+        }
+      }
+    </style>
+  </head>
+  <body
+    style=3D"
+      width: 100%;
+      font-family: arial, 'helvetica neue', helvetica, sans-serif;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      padding: 0;
+      margin: 0;
+    "
+  >
+    <div
+      class=3D"es-wrapper-color"
+      style=3D"background-color: #fff5f7; width: 100%; overflow-x: hidden"
+    >
+      <!--[if gte mso 9]>
+        <v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t">
+          <v:fill type=3D"tile" color=3D"#f6f6f6"> </v:fill>
+        </v:background>
+      <![endif]-->
+      <table
+        class=3D"es-wrapper"
+        width=3D"100%"
+        cellspacing=3D"0"
+        cellpadding=3D"0"
+        style=3D"
+          mso-table-lspace: 0pt;
+          mso-table-rspace: 0pt;
+          border-collapse: collapse;
+          border-spacing: 0px;
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          height: 100%;
+          background-repeat: repeat;
+          background-position: center top;
+        "
+      >
+        <tr style=3D"border-collapse: collapse; bbackground-color: #ffeaed"=
+>
+          <td valign=3D"top" style=3D"padding: 0; margin: 0">
+            <table
+              cellpadding=3D"0"
+              cellspacing=3D"0"
+              class=3D"es-header"
+              align=3D"center"
+              mc:repeatable
+              style=3D"
+                border-collapse: collapse;
+                border-spacing: 0px;
+                table-layout: fixed !important;
+                width: 100%;
+                background-color: #0050d8;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <tr style=3D"border-collapse: collapse">
+                <td
+                  align=3D"center"
+                  bgcolor=3D"#FFEAED"
+                  style=3D"padding: 0; margin: 0; background-color: #ffd0d8=
+"
+                >
+                  <table
+                    class=3D"es-header-body"
+                    align=3D"center"
+                    cellpadding=3D"0"
+                    cellspacing=3D"0"
+                    style=3D"
+                      border-collapse: collapse;
+                      border-spacing: 0px;
+                      background-color: transparent;
+                      width: 600px;
+                    "
+                  >
+                    <tr style=3D"border-collapse: collapse">
+                      <td align=3D"left" bgcolor=3D"#FFB2C1" class=3D"heade=
+r">
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          width=3D"100%"
+                          style=3D"border-collapse: collapse; border-spacin=
+g: 0px"
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              align=3D"left"
+                              style=3D"padding: 0; margin: 0; width: 545px"
+                            >
+                              <table
+                                cellpadding=3D"0"
+                                cellspacing=3D"0"
+                                width=3D"100%"
+                                role=3D"presentation"
+                                style=3D"
+                                  border-collapse: collapse;
+                                  border-spacing: 0px;
+                                "
+                              >
+                                <tr style=3D"border-collapse: collapse">
+                                  <td
+                                    align=3D"center"
+                                    style=3D"
+                                      padding: 0;
+                                      margin: 0;
+                                      font-size: 0px;
+                                    "
+                                    mc:edit=3D"block_0"
+                                  >
+                                    <img
+                                      class=3D"adapt-img-header"
+                                      src=3D"https://s3-us-west-2.amazonaws=
+.com/mail.movet.co/images/movet_logo.png"
+                                      alt
+                                      style=3D"
+                                        display: block;
+                                        border: 0;
+                                        outline: none;
+                                        text-decoration: none;
+                                        -ms-interpolation-mode: bicubic;
+                                        width: 100px;
+                                      "
+                                    />
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table
+              class=3D"es-content"
+              cellspacing=3D"0"
+              cellpadding=3D"0"
+              align=3D"center"
+              mc:repeatable
+              style=3D"
+                mso-table-lspace: 0pt;
+                mso-table-rspace: 0pt;
+                border-collapse: collapse;
+                border-spacing: 0px;
+                table-layout: fixed !important;
+                width: 100%;
+              "
+            >
+              <tr style=3D"border-collapse: collapse">
+                <td
+                  align=3D"center"
+                  style=3D"
+                    padding: 0;
+                    margin: 0;
+                    background-color: #ffeaed;
+                    background: rgb(255, 255, 255);
+                    background: linear-gradient(
+                      0deg,
+                      rgba(254, 235, 237, 1) 0%,
+                      rgba(254, 235, 237, 1) 80%,
+                      rgba(255, 208, 216, 1) 80%
+                    );
+                  "
+                >
+                  <table
+                    class=3D"es-content-body"
+                    style=3D"
+                      mso-table-lspace: 0pt;
+                      mso-table-rspace: 0pt;
+                      border-collapse: collapse;
+                      border-spacing: 0px;
+                      background-color: #ffffff;
+                      width: 600px;
+                    "
+                    cellspacing=3D"0"
+                    cellpadding=3D"0"
+                    bgcolor=3D"#ffffff"
+                    align=3D"center"
+                  >
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        align=3D"left"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-top: 20px;
+                          padding-left: 20px;
+                          padding-right: 20px;
+                        "
+                      >
+                        <table
+                          width=3D"100%"
+                          cellspacing=3D"0"
+                          cellpadding=3D"0"
+                          style=3D"
+                            mso-table-lspace: 0pt;
+                            mso-table-rspace: 0pt;
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              class=3D"es-m-p0r es-m-p20b"
+                              valign=3D"top"
+                              align=3D"center"
+                              style=3D"padding: 0; margin: 0; width: 560px"
+                            >
+                              <table
+                                width=3D"100%"
+                                cellspacing=3D"0"
+                                cellpadding=3D"0"
+                                role=3D"presentation"
+                                style=3D"
+                                  mso-table-lspace: 0pt;
+                                  mso-table-rspace: 0pt;
+                                  border-collapse: collapse;
+                                  border-spacing: 0px;
+                                "
+                              >
+                                <tr style=3D"border-collapse: collapse">
+                                  <td
+                                    align=3D"center"
+                                    style=3D"
+                                      padding: 0;
+                                      margin: 0;
+                                      font-size: 0px;
+                                    "
+                                    mc:edit=3D"block_1"
+                                  >
+                                    <img
+                                      class=3D"adapt-img"
+                                      src=3D"https://s3-us-west-2.amazonaws=
+.com/mail.movet.co/images/app-pet.png"
+                                      alt=3D""
+                                      style=3D"
+                                        display: block;
+                                        border: 0;
+                                        outline: none;
+                                        text-decoration: none;
+                                        -ms-interpolation-mode: bicubic;
+                                        margin-top: 50px;
+                                      "
+                                    />
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        align=3D"left"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-top: 20px;
+                          padding-left: 20px;
+                          padding-right: 20px;
+                        "
+                      >
+                        <table
+                          width=3D"100%"
+                          cellspacing=3D"0"
+                          cellpadding=3D"0"
+                          style=3D"
+                            mso-table-lspace: 0pt;
+                            mso-table-rspace: 0pt;
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              class=3D"es-m-p0r es-m-p20b"
+                              valign=3D"top"
+                              align=3D"center"
+                              style=3D"padding: 0; margin: 0; width: 560px"
+                            >
+                              <table
+                                width=3D"100%"
+                                cellspacing=3D"0"
+                                cellpadding=3D"0"
+                                role=3D"presentation"
+                                style=3D"
+                                  mso-table-lspace: 0pt;
+                                  mso-table-rspace: 0pt;
+                                  border-collapse: collapse;
+                                  border-spacing: 0px;
+                                "
+                              >
+                                <tr style=3D"border-collapse: collapse">
+                                  <td
+                                    align=3D"center"
+                                    style=3D"padding: 0; margin: 0"
+                                    mc:edit=3D"block_2"
+                                  >
+                                    <p
+                                      style=3D"
+                                        margin: 0;
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        mso-line-height-rule: exactly;
+                                        font-style: normal;
+                                        font-weight: bold;
+                                        font-family: 'Poppins', sans-serif;
+                                        color: #190080;
+                                        text-align: center;
+                                        line-height: 55px;
+                                        font-size: 36px;
+                                      "
+                                    >
+                                      El servicio veterinario para Colette =
+termin=C3=B3
+                                    </p>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        align=3D"left"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-top: 20px;
+                          padding-left: 20px;
+                          padding-right: 20px;
+                        "
+                      >
+                        <table
+                          width=3D"100%"
+                          cellspacing=3D"0"
+                          cellpadding=3D"0"
+                          style=3D"
+                            mso-table-lspace: 0pt;
+                            mso-table-rspace: 0pt;
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              class=3D"es-m-p0r es-m-p20b"
+                              valign=3D"top"
+                              align=3D"center"
+                              style=3D"padding: 0; margin: 0; width: 560px"
+                            >
+                              <table
+                                width=3D"100%"
+                                cellspacing=3D"0"
+                                cellpadding=3D"0"
+                                role=3D"presentation"
+                                style=3D"
+                                  mso-table-lspace: 0pt;
+                                  mso-table-rspace: 0pt;
+                                  border-collapse: collapse;
+                                  border-spacing: 0px;
+                                "
+                              >
+                                <tr style=3D"border-collapse: collapse">
+                                  <td
+                                    align=3D"center"
+                                    style=3D"padding: 0; margin: 0"
+                                    mc:edit=3D"block_3"
+                                  >
+                                    <p
+                                      style=3D"
+                                        margin: 0;
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        mso-line-height-rule: exactly;
+                                        font-size: 18px;
+                                        font-family: 'Work sans', sans-seri=
+f;
+                                        line-height: 21px;
+                                        color: #190080;
+                                        font-weight: 400;
+                                        margin-bottom: 30px;
+                                      "
+                                    >
+                                      A continuaci=C3=B3n puedes ver el his=
+torial del
+                                      servicio y las recomendaciones para q=
+ue
+                                      sigas cuidando a Colette.
+                                    </p>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+
+                    <tr
+                      style=3D"
+                        border-collapse: collapse;
+                        border-top: 1px solid #ffb2c1;
+                      "
+                    >
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        align=3D"left"
+                        style=3D"padding: 0; margin: 0; padding-top: 50px"
+                      >
+                        <!--[if mso]>
+                        <table style=3D"width:560px;" cellpadding=3D"0" cel=
+lspacing=3D"0">
+                          <tr>
+                            <td style=3D"width:270px;" valign=3D"top">
+                              <![endif]-->
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          class=3D"es-left"
+                          align=3D"left"
+                          style=3D"
+                            mso-table-lspace: 0pt;
+                            mso-table-rspace: 0pt;
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                            float: left;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              class=3D"es-m-p20b"
+                              align=3D"left"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  mso-line-height-rule: exactly;
+                                  font-size: 14px;
+                                  font-weight: bold;
+                                  font-family: 'poppins', arial,
+                                    'helvetica neue', helvetica, sans-serif=
+;
+                                  line-height: 21px;
+                                  color: #190080;
+                                  margin-bottom: 27px;
+                                "
+                              >
+                                RESUMEN DEL SERVICIO
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+
+                        <!--[if mso]>
+                      </td>
+                      <td style=3D"width:20px;">
+                      </td>
+                      <td style=3D"width:270px;" valign=3D"top">
+                        <![endif]-->
+                        <!--[if mso]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        class=3D"social-td"
+                        align=3D"center"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-top: 30px;
+                          border-top: 1px solid #ffb2c1;
+                        "
+                      >
+                        <!--[if mso]>
+                        <table style=3D"width:560px;" cellpadding=3D"0" cel=
+lspacing=3D"0">
+                          <tr>
+                            <td style=3D"width:270px;" valign=3D"top">
+                              <![endif]-->
+                        <!--[if mso]>
+                      </td>
+                      <td style=3D"width:20px;">
+                      </td>
+                      <td style=3D"width:270px;" valign=3D"top">
+                        <![endif]-->
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          class=3D"es-right"
+                          align=3D"right"
+                          style=3D"
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                            float: right;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              align=3D"left"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  mso-line-height-rule: exactly;
+                                  font-size: 16px;
+                                  font-family: 'Work sans', sans-serif;
+                                  line-height: 19px;
+                                  color: #190080;
+                                "
+                              >
+                                N=C3=BAmero del servicio
+                              </p>
+                            </td>
+                            <td
+                              align=3D"right"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  font-size: 16px;
+                                  font-family: 'work sans', arial,
+                                    'helvetica neue', helvetica, sans-serif=
+;
+                                  line-height: 19px;
+                                  font-weight: bold;
+                                  color: #3300ff;
+                                "
+                              >
+                                622d4eb4f2499a7d4a5ac273
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+
+                        <!--[if mso]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        class=3D"social-td"
+                        align=3D"left"
+                        style=3D"padding: 0; margin: 0; padding-top: 13px"
+                      >
+                        <!--[if mso]>
+                      </td>
+                      <td style=3D"width:20px;">
+                      </td>
+                      <td style=3D"width:270px;" valign=3D"top">
+                        <![endif]-->
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          class=3D"es-right"
+                          align=3D"right"
+                          style=3D"
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                            float: right;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              align=3D"left"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  mso-line-height-rule: exactly;
+                                  font-size: 16px;
+                                  font-family: 'Work sans', sans-serif;
+                                  line-height: 19px;
+                                  color: #190080;
+                                "
+                              >
+                                Fecha
+                              </p>
+                            </td>
+                            <td
+                              align=3D"right"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  font-size: 16px;
+                                  font-family: 'work sans', arial,
+                                    'helvetica neue', helvetica, sans-serif=
+;
+                                  line-height: 19px;
+                                  font-weight: bold;
+                                  color: #3300ff;
+                                "
+                              >
+                                12/03/2022 21:15
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--[if mso]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        class=3D"social-td"
+                        align=3D"left"
+                        style=3D"padding: 0; margin: 0; padding-top: 13px"
+                      >
+                        <!--[if mso]>
+                        <table style=3D"width:560px;" cellpadding=3D"0" cel=
+lspacing=3D"0">
+                          <tr>
+                            <td style=3D"width:270px;" valign=3D"top">
+                              <![endif]-->
+                        <!--[if mso]>
+                      </td>
+                      <td style=3D"width:20px;">
+                      </td>
+                      <td style=3D"width:270px;" valign=3D"top">
+                        <![endif]-->
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          class=3D"es-right"
+                          align=3D"right"
+                          style=3D"
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                            float: right;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              align=3D"left"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  mso-line-height-rule: exactly;
+                                  font-size: 16px;
+                                  font-family: 'Work sans', sans-serif;
+                                  line-height: 19px;
+                                  color: #190080;
+                                "
+                              >
+                                Mascota
+                              </p>
+                            </td>
+                            <td
+                              align=3D"right"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  font-size: 16px;
+                                  font-family: 'work sans', arial,
+                                    'helvetica neue', helvetica, sans-serif=
+;
+                                  line-height: 19px;
+                                  font-weight: bold;
+                                  color: #3300ff;
+                                "
+                              >
+                                Colette
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+                        <!--[if mso]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+                   =20
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        class=3D"social-td"
+                        align=3D"left"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-top: 13px;
+                        "
+                      >
+                        <!--[if mso]>
+                        <table style=3D"width:560px;" cellpadding=3D"0" cel=
+lspacing=3D"0">
+                          <tr>
+                            <td style=3D"width:270px;" valign=3D"top">
+                              <![endif]-->
+                        <!--[if mso]>
+                      </td>
+                      <td style=3D"width:20px;">
+                      </td>
+                      <td style=3D"width:270px;" valign=3D"top">
+                        <![endif]-->
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          class=3D"es-right"
+                          align=3D"right"
+                          style=3D"
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                            float: right;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              align=3D"left"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  mso-line-height-rule: exactly;
+                                  font-size: 16px;
+                                  font-family: 'Work sans', sans-serif;
+                                  line-height: 19px;
+                                  color: #190080;
+                                "
+                              >
+                                Tipo de servicio
+                              </p>
+                            </td>
+                            <td
+                              align=3D"right"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  font-size: 16px;
+                                  font-family: 'work sans', arial,
+                                    'helvetica neue', helvetica, sans-serif=
+;
+                                  line-height: 19px;
+                                  font-weight: bold;
+                                  color: #3300ff;
+                                "
+                              >
+                                Agente Movet
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+
+                       =20
+
+                        <!--[if mso]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        class=3D"social-td"
+                        align=3D"left"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-top: 13px;
+                          padding-bottom: 30px;
+                        "
+                      >
+                        <!--[if mso]>
+                        <table style=3D"width:560px;" cellpadding=3D"0" cel=
+lspacing=3D"0">
+                          <tr>
+                            <td style=3D"width:270px;" valign=3D"top">
+                              <![endif]-->
+                        <!--[if mso]>
+                      </td>
+                      <td style=3D"width:20px;">
+                      </td>
+                      <td style=3D"width:270px;" valign=3D"top">
+                        <![endif]-->
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          class=3D"es-right"
+                          align=3D"right"
+                          style=3D"
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                            float: right;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              align=3D"left"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  mso-line-height-rule: exactly;
+                                  font-size: 16px;
+                                  font-family: 'Work sans', sans-serif;
+                                  line-height: 19px;
+                                  color: #190080;
+                                "
+                              >
+                              Motivo de consulta
+                              </p>
+                            </td>
+                            <td
+                              align=3D"right"
+                              style=3D"padding: 0; margin: 0; width: 270px"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  font-size: 16px;
+                                  font-family: 'work sans', arial,
+                                    'helvetica neue', helvetica, sans-serif=
+;
+                                  line-height: 19px;
+                                  font-weight: bold;
+                                  color: #3300ff;
+                                "
+                              >
+                               =20
+                              </p>
+                            </td>
+                          </tr>
+                        </table>
+
+                       =20
+
+                        <!--[if mso]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 10%"></td>
+                      <td
+                        class=3D"social-td"
+                        align=3D"left"
+                        style=3D"
+                          margin: 0;
+                          padding-bottom: 80px;
+                          border-top: 1px solid #ffb2c1;
+                        "
+                      >
+                        <!--[if mso]>
+                        <table style=3D"width:560px;" cellpadding=3D"0" cel=
+lspacing=3D"0">
+                          <tr>
+                            <td style=3D"width:270px;" valign=3D"top">
+                              <![endif]-->
+                              <table
+                              cellpadding=3D"0"
+                              cellspacing=3D"0"
+                              class=3D"es-left"
+                              align=3D"left"
+                              style=3D"
+                                mso-table-lspace: 0pt;
+                                mso-table-rspace: 0pt;
+                                border-collapse: collapse;
+                                width: 100%;
+                                border-spacing: 0px;
+                                float: left;
+                              "
+                            >
+                              <tr style=3D"border-collapse: collapse">
+                                <td
+                                  class=3D"es-m-p20b"
+                                  align=3D"left"
+                                  style=3D"padding: 0; margin: 0; width: 27=
+0px; padding-top: 30px;"
+                                >
+                                  <p
+                                    style=3D"
+                                      margin: 0;
+                                      -webkit-text-size-adjust: none;
+                                      -ms-text-size-adjust: none;
+                                      mso-line-height-rule: exactly;
+                                      font-size: 14px;
+                                      font-weight: bold;
+                                      font-family: 'poppins', arial,
+                                        'helvetica neue', helvetica, sans-s=
+erif;
+                                      line-height: 21px;
+                                      color: #190080;
+                                      lor: #190080;
+                                    "
+                                  >
+                                    RECOMENDACIONES
+                                  </p>
+   =20
+                                  <p style=3D"font-size: 16px; color: #1900=
+80; text-align: justify;">
+                                    En caso de presentar episodio convulsiv=
+o realizar interacci=C3=B3n por medio de la aplicaci=C3=B3n. =20
+                                  </p>
+                                </td>
+                              </tr>
+                            </table>
+
+                            <table
+                            cellpadding=3D"0"
+                            cellspacing=3D"0"
+                            class=3D"es-left"
+                            align=3D"left"
+                            style=3D"
+                              mso-table-lspace: 0pt;
+                              mso-table-rspace: 0pt;
+                              border-collapse: collapse;
+                              border-top: 1px solid #ffb2c1;
+                              width: 100%;
+                              border-spacing: 0px;
+                              float: left;
+                            "
+                          >
+                            <tr style=3D"border-collapse: collapse">
+                              <td
+                                class=3D"es-m-p20b"
+                                align=3D"left"
+                                style=3D"padding: 0; margin: 0; width: 270p=
+x; padding-top: 30px;"
+                              >
+                                <p
+                                  style=3D"
+                                    margin: 0;
+                                    -webkit-text-size-adjust: none;
+                                    -ms-text-size-adjust: none;
+                                    mso-line-height-rule: exactly;
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                    font-family: 'poppins', arial,
+                                      'helvetica neue', helvetica, sans-ser=
+if;
+                                    line-height: 21px;
+                                    color: #190080;
+                                    lor: #190080;
+                                  "
+                                >
+                                ANAMNESIS
+                                </p>
+ =20
+                                <p style=3D"font-size: 16px; color: #190080=
+; text-align: justify;">
+                                  Dr. Santiago Castellanos chat. Se reporta=
+ episodio convulsivo el d=C3=ADa de hoy, paciente diagnosticada con enferme=
+dad hepatica, se est=C3=A1 manejando suplementaci=C3=B3n con liv 52 y admin=
+istraci=C3=B3n de Levetiracetam, se suspendi=C3=B3 hace dos d=C3=ADas.=20
+                                </p>
+                              </td>
+                            </tr>
+                          </table>
+
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          class=3D"es-left"
+                          align=3D"left"
+                          style=3D"
+                            mso-table-lspace: 0pt;
+                            mso-table-rspace: 0pt;
+                            border-collapse: collapse;
+                            border-top: 1px solid #ffb2c1;
+                            width: 100%;
+                            border-spacing: 0px;
+                            float: left;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              class=3D"es-m-p20b"
+                              align=3D"left"
+                              style=3D"padding: 0; margin: 0; width: 270px;=
+ padding-top: 30px;"
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  mso-line-height-rule: exactly;
+                                  font-size: 14px;
+                                  font-weight: bold;
+                                  font-family: 'poppins', arial,
+                                    'helvetica neue', helvetica, sans-serif=
+;
+                                  line-height: 21px;
+                                  color: #190080;
+                                  lor: #190080;
+                                "
+                              >
+                              RECETA M=C3=89DICA
+                              </p>
+                              <table class=3D"table-meds">
+                                <thead style=3D"margin-bottom: 10px;">
+                                  <tr>
+                                    <td>Cant.</td>
+                                    <td>Producto</td>
+                                    <td>Modo de uso</td>
+                                  </tr>
+                                </thead>
+                                <tbody class=3D"table-meds-body">
+                                  <tr><td>1</td><td>Levetiracetam uso human=
+o 500 mg</td><td>Administrar 1/3 de la tableta v=C3=ADa oral cada 12 horas.=
+ </td></tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          class=3D"es-left"
+                          align=3D"left"
+                          style=3D"
+                            mso-table-lspace: 0pt;
+                            mso-table-rspace: 0pt;
+                            border-collapse: collapse;
+                            border-spacing: 0px;
+                            float: left;
+                            border-top: 1px solid #ffb2c1;
+                            width: 100%;
+                          "
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              class=3D"es-m-p20b"
+                              align=3D"left"
+                              style=3D"
+                                padding: 0;
+                                margin: 0;
+                                width: 100%;
+                                padding-top: 30px;
+                              "
+                            >
+                              <p
+                                style=3D"
+                                  margin: 0;
+                                  -webkit-text-size-adjust: none;
+                                  -ms-text-size-adjust: none;
+                                  mso-line-height-rule: exactly;
+                                  font-size: 14px;
+                                  font-weight: bold;
+                                  font-family: 'poppins', arial,
+                                    'helvetica neue', helvetica, sans-serif=
+;
+                                  line-height: 21px;
+                                  color: #190080;
+                                  lor: #190080;
+                                "
+                              >
+                                ANTECEDENTES
+                              </p>
+
+                              <ul style=3D"font-size: 16px; color: #190080;=
+ list-style-type: disc;">
+                               =20
+                              </ul>
+                            </td>
+                          </tr>
+                        </table>
+
+                        <!--[if mso]>
+                      </td>
+                      <td style=3D"width:20px;">
+                      </td>
+                      <td style=3D"width:270px;" valign=3D"top">
+                        <![endif]-->
+                        <!--[if mso]>
+                      </td>
+                    </tr>
+                  </table>
+                  <![endif]-->
+                      </td>
+                      <td style=3D"width: 10%"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table
+              cellpadding=3D"0"
+              cellspacing=3D"0"
+              class=3D"es-footer"
+              align=3D"center"
+              mc:repeatable
+              style=3D"
+                border-collapse: collapse;
+                border-spacing: 0px;
+                table-layout: fixed !important;
+                width: 100%;
+                background-repeat: repeat;
+                background-position: center top;
+              "
+            >
+              <tr style=3D"border-collapse: collapse">
+                <td
+                  align=3D"center"
+                  bgcolor=3D"#FFEAED"
+                  style=3D"padding: 0; margin: 0; background-color: #ffeaed=
+"
+                >
+                  <table
+                    bgcolor=3D"#FFB2C1"
+                    class=3D"es-footer-body"
+                    align=3D"center"
+                    cellpadding=3D"0"
+                    cellspacing=3D"0"
+                    style=3D"
+                      border-collapse: collapse;
+                      border-spacing: 0px;
+                      background-color: #ffd0d8;
+                      width: 600px;
+                    "
+                  >
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 15%"></td>
+                      <td
+                        align=3D"left"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-top: 50px;
+                          padding-left: 10px;
+                          padding-right: 10px;
+                        "
+                      >
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          width=3D"100%"
+                          style=3D"border-collapse: collapse; border-spacin=
+g: 0px"
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              align=3D"center"
+                              valign=3D"top"
+                              style=3D"padding: 0; margin: 0; width: 560px"
+                            >
+                              <table
+                                cellpadding=3D"0"
+                                cellspacing=3D"0"
+                                width=3D"100%"
+                                role=3D"presentation"
+                                style=3D"
+                                  border-collapse: collapse;
+                                  border-spacing: 0px;
+                                "
+                              >
+                                <tr style=3D"border-collapse: collapse">
+                                  <td
+                                    align=3D"center"
+                                    style=3D"
+                                      padding: 0;
+                                      margin: 0;
+                                      font-size: 0px;
+                                    "
+                                    mc:edit=3D"block_6"
+                                  >
+                                    <img
+                                      class=3D"adapt-img-logo"
+                                      src=3D"https://s3-us-west-2.amazonaws=
+.com/mail.movet.co/images/logo-footer.png"
+                                      alt
+                                      style=3D"
+                                        display: block;
+                                        border: 0;
+                                        outline: none;
+                                        text-decoration: none;
+                                        -ms-interpolation-mode: bicubic;
+                                        margin-bottom: 30px;
+                                      "
+                                    />
+                                  </td>
+                                </tr>
+                                <tr style=3D"border-collapse: collapse">
+                                  <td
+                                    style=3D"
+                                      padding: 0;
+                                      margin: 0;
+                                      text-align: center;
+                                    "
+                                    mc:edit=3D"block_7"
+                                  >
+                                    <a
+                                      target=3D"_blank"
+                                      href=3D"https://www.movet.co/web/plan=
+-detail"
+                                      style=3D"
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        font-family: 'Poppins', sans-serif;
+                                        font-size: 10px !important;
+                                        text-decoration: none;
+                                        color: #3300ff;
+                                        font-weight: 600;
+                                        line-height: 18px;
+                                        letter-spacing: 1.3px;
+                                      "
+                                    >
+                                      PLANES
+                                    </a>
+                                    <a
+                                      target=3D"_blank"
+                                      href=3D"https://www.movet.co/web/abou=
+t"
+                                      style=3D"
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        font-family: 'Poppins', sans-serif;
+                                        font-size: 10px !important;
+                                        text-decoration: none;
+                                        color: #3300ff;
+                                        font-weight: 600;
+                                        line-height: 18px;
+                                        letter-spacing: 1.3px;
+                                      "
+                                    >
+                                      ACERCA
+                                    </a>
+                                    <a
+                                      target=3D"_blank"
+                                      href=3D"https://www.movet.co/web/help=
+"
+                                      style=3D"
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        font-family: 'Poppins', sans-serif;
+                                        font-size: 10px !important;
+                                        text-decoration: none;
+                                        color: #3300ff;
+                                        font-weight: 600;
+                                        line-height: 18px;
+                                        letter-spacing: 1.3px;
+                                      "
+                                    >
+                                      AYUDA
+                                    </a>
+                                  </td>
+                                </tr>
+                                <tr style=3D"height: 15px"></tr>
+                                <tr style=3D"border-collapse: collapse">
+                                  <td
+                                   =20
+                                    style=3D"
+                                      padding: 0;
+                                      margin: 0;
+                                      text-align: center;
+                                    "
+                                    mc:edit=3D"block_8"
+                                  >
+                                    <a
+                                      target=3D"_blank"
+                                      href=3D"https://www.movet.co/web/priv=
+acy"
+                                      style=3D"
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        font-family: 'Poppins', sans-serif;
+                                        font-size: 10px !important;
+                                        text-decoration: none;
+                                        color: #3300ff;
+                                        font-weight: 600;
+                                        line-height: 18px;
+                                        letter-spacing: 1.3px;
+                                      "
+                                    >
+                                      PRIVACIDAD
+                                    </a>
+                                    <a
+                                      target=3D"_blank"
+                                      href=3D"https://www.movet.co/web/priv=
+acy"
+                                      style=3D"
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        font-family: 'Poppins', sans-serif;
+                                        font-size: 10px !important;
+                                        text-decoration: none;
+                                        color: #3300ff;
+                                        font-weight: 600;
+                                        line-height: 18px;
+                                        letter-spacing: 1.3px;
+                                      "
+                                    >
+                                      ACCESIBILIDAD
+                                    </a>
+                                    <a
+                                      target=3D"_blank"
+                                      href=3D"https://www.movet.co/web/priv=
+acy"
+                                      style=3D"
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        font-family: 'Poppins', sans-serif;
+                                        font-size: 10px !important;
+                                        text-decoration: none;
+                                        color: #3300ff;
+                                        font-weight: 600;
+                                        line-height: 18px;
+                                        letter-spacing: 1.3px;
+                                      "
+                                    >
+                                      T=C3=89RMINOS
+                                    </a>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td style=3D"width: 15%"></td>
+                    </tr>
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 15%"></td>
+                      <td
+                        class=3D"social-td"
+                        align=3D"left"
+                        style=3D"
+                          margin: 0;
+                          padding-top: 50px;
+                          padding-bottom: 30px;
+                          text-align: center;
+                        "
+                      >
+                        <!--[if mso]><table style=3D"width:560px" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td style=3D"width:145px" valign=3D"top"><![=
+endif]-->
+                          <a target=3D"_blank" href=3D"https://www.instagra=
+m.com/movet.co/">
+                            <img
+                            class=3D"adapt-img-social"
+                            src=3D"http://s3-us-west-2.amazonaws.com/mail.m=
+ovet.co/images/ig.png"
+                            alt
+                            style=3D"
+                              border: 0;
+                              outline: none;
+                              text-decoration: none;
+                              -ms-interpolation-mode: bicubic;
+                              margin: 0 15px;
+                            "
+                          />
+                          </a>
+                        <!--[if mso]></td><td style=3D"width:145px" valign=
+=3D"top"><![endif]-->
+                        <a=20
+                        target=3D"_blank"=20
+                        href=3D"https://www.facebook.com/movet.co/">
+                          <img
+                          class=3D"adapt-img-social"
+                          src=3D"http://s3-us-west-2.amazonaws.com/mail.mov=
+et.co/images/facebook.png"
+                          alt
+                          style=3D"
+                            border: 0;
+                            outline: none;
+                            text-decoration: none;
+                            -ms-interpolation-mode: bicubic;
+                            margin: 0 15px;
+                          "
+                        />
+
+                        </a>
+                        <!--[if mso]></td><td style=3D"width:125px" valign=
+=3D"top"><![endif]-->
+
+                        <a target=3D"_blank" href=3D"https://api.whatsapp.c=
+om/send/?phone=3D%2B5713692290">
+                          <img
+                            class=3D"adapt-img-social"
+                            src=3D"http://s3-us-west-2.amazonaws.com/mail.m=
+ovet.co/images/whatsapp.png"
+                            alt
+                            style=3D"
+                              border: 0;
+                              outline: none;
+                              text-decoration: none;
+                              -ms-interpolation-mode: bicubic;
+                              margin: 0 15px;
+                            "
+                          />
+                        </a>
+                        <!--[if mso]></td></tr></table><![endif]-->
+                      </td>
+                      <td style=3D"width: 15%"></td>
+                    </tr>
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 15%"></td>
+                      <td
+                        class=3D"market-img-container"
+                        align=3D"left"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-left: 20px;
+                          padding-right: 20px;
+                          text-align: center;
+                        "
+                      >
+                        <!--[if mso]><table style=3D"width:560px" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td style=3D"width:270px" valign=3D"top"><![=
+endif]-->
+                          <a
+                          target=3D"_blank"
+                          href=3D"https://play.google.com/store/apps/detail=
+s?id=3Dcom.movet.movetApp&hl=3Des_CO&gl=3DUS"
+                          style=3D"text-decoration: none"
+                        >
+                          <img
+                            class=3D"adapt-img-market"
+                            src=3D"http://s3-us-west-2.amazonaws.com/mail.m=
+ovet.co/images/google-play.png"
+                            alt
+                            style=3D"
+                              border: 0;
+                              outline: none;
+                              text-decoration: none;
+                              -ms-interpolation-mode: bicubic;
+                              margin: 0 8px;
+                            "
+                          />
+                        </a>
+                        <!--[if mso]></td><td style=3D"width:20px"></td><td=
+ style=3D"width:270px" valign=3D"top"><![endif]-->
+                        <a
+                          target=3D"_blank"
+                          href=3D"https://apps.apple.com/co/app/movet/id155=
+5142605"
+                          style=3D"text-decoration: none"
+                        >
+                          <img
+                            class=3D"adapt-img-market"
+                            style=3D"margin: 0 8px"
+                            src=3D"http://s3-us-west-2.amazonaws.com/mail.m=
+ovet.co/images/app-store.png"
+                            alt
+                          />
+                        </a>
+                        <!--[if mso]></td></tr></table><![endif]-->
+                      </td>
+                      <td style=3D"width: 15%"></td>
+                    </tr>
+                    <tr style=3D"height: 40px"></tr>
+                    <tr style=3D"border-collapse: collapse">
+                      <td style=3D"width: 15%"></td>
+                      <td
+                        class=3D"market-img-container"
+                        align=3D"left"
+                        style=3D"
+                          padding: 0;
+                          margin: 0;
+                          padding-top: 20px;
+                          padding-left: 20px;
+                          padding-right: 20px;
+                        "
+                      >
+                        <table
+                          cellpadding=3D"0"
+                          cellspacing=3D"0"
+                          width=3D"100%"
+                          style=3D"border-collapse: collapse; border-spacin=
+g: 0px"
+                        >
+                          <tr style=3D"border-collapse: collapse">
+                            <td
+                              align=3D"center"
+                              valign=3D"top"
+                              style=3D"padding: 0; margin: 0; width: 560px"
+                            >
+                              <table
+                                cellpadding=3D"0"
+                                cellspacing=3D"0"
+                                width=3D"100%"
+                                role=3D"presentation"
+                                style=3D"
+                                  border-collapse: collapse;
+                                  border-spacing: 0px;
+                                "
+                              >
+                                <tr style=3D"border-collapse: collapse">
+                                  <td
+                                    align=3D"center"
+                                    style=3D"
+                                      padding: 0;
+                                      margin: 0;
+                                      padding-bottom: 40px;
+                                    "
+                                    mc:edit=3D"block_15"
+                                  >
+                                    <p
+                                      style=3D"
+                                        margin: 0;
+                                        -webkit-text-size-adjust: none;
+                                        -ms-text-size-adjust: none;
+                                        font-size: 12px;
+                                        letter-spacing: 1.71px;
+                                        font-family: 'Poppins', sans-serif;
+                                        line-height: 18px;
+                                        color: #3300ff;
+                                        font-weight: 600;
+                                      "
+                                    >
+                                      &copy; MOVET 2020
+                                    </p>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td style=3D"width: 15%"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
