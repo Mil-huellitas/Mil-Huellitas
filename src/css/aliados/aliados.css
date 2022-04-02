@@ -1,114 +1,45 @@
-.container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo&display=swap');
+
+:root{
+    --blue-dark-color:#1E4364;
+    --blue-medium-color:#2970CA;
+    --blue-light:#D5E3FF;
+    --green-light-color:#C4EDB2;
+    --coral-color:#FAC0BD;
+    --dark-color:#191919;
+    --white-color:#FFFFFF;
 }
 
-.navbar{
-    background-color: rgb(1, 1, 53);
-    color: white;
-    grid-column: 1/3;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.banner{
-    grid-column: 1/2;
+body{
+    font-family: 'Poppins',sans-serif;
+    text-align: center;
+}
+
+header{
+    background-color: var(--blue-dark-color);
 }
 
 .banner img{
-    max-width: 200%;
-}
-
-.buttons-prin{
-    grid-column: 1/3;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    align-items: center;
-}
-
-.buttons-prin img{
-    width: 150px;
-}
-
-.title2{
-    margin-top: 20px;
-    grid-column: 1/3;
-    text-align: center;
-}
-
-.cupon{
-    grid-column: 1/3;
-}
-
-
-
-.cupon img{
+    width: 100%;
     max-width: 100%;
 }
 
-
-
-.card{
-    grid-column: 1/3;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    width: 100%;
-    scroll-snap-align: center;
-    border-radius: 2%;
-    border: 1px solid white;
-    transition: al .4s ease-in-out;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    background: linear-gradient(-135deg, pink, #FBA303);
-    
+.title1 p{
+    font-size: 70%;
 }
 
-.card-encabezado img{
-    position: relative;
-    border-radius: 50%;
-    display: block;
-    height: 100px;
-    width: 100px;
-    border-top: 8px solid var(--dark-color);
-    border-bottom: 8px solid var(--dark-color);
-    object-fit:cover;
-    margin: 20px auto;
-    transition: all 0.3s ease;
-
+.prn{
+    margin-top: 20px;
+    background-image: url(../../assets/img/aliados/fondo-prn.png);
 }
 
-
-
-
-
-.card-encabezado:after{
-    border-radius: 50%;
-    z-index: 20;
-    background-color: #EB5CB2;
-    width: 50px;
-    height: 50px;
-    top: 0;
-    right: 25px;
-}
-
-.card-encabezado:before{
-    width: 70px;
-    height: 70px;
-    bottom: 0;
-    left: -10px;
-    border-radius: 20px;
-    background-color: rgb(19, 2, 2);
-    transform: rotate(120deg);
-}
-
-
-.card-iconos {
-    background-color: aquamarine;
-    margin: 10px;
-    border-radius: 20px;
-}
-
-
-
-.footer{
-    background-color: darkgoldenrod;
-    grid-column: 1/3;
+.buttons-prn img{
+    width: 40%;
 }
