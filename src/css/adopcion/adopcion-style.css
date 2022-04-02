@@ -58,7 +58,7 @@ header{
     padding: 5px;
 }
 
-#requirement{
+#adoption-requirement{
     grid-area: requirement;
     padding: 10px;
 }
@@ -70,11 +70,11 @@ footer{
 
 .container-grid{
     display: grid;
-    grid-template:"header" 100px
+    grid-template:"header" 80px
                   "adoption-banner" auto
                   "adoption" auto
                   "adoption-requirement" auto
-                  "footer"  250px;
+                  "footer"  auto;
     text-align: center;
 }
 
@@ -88,6 +88,10 @@ footer{
 
 #adoption-banner img{
     width: 100%;
+}
+
+#main-adoption{
+    padding: 0;
 }
 
 button{
@@ -142,11 +146,16 @@ button{
     margin: 10px 0;
 }
 
+#adoption-requirement{
+    padding: 10px;
+}
+
 #adoption-requirement h1{
     margin: 10px 0;
 }
 
 .list-requirement ul{
+    text-align: left;
     margin-left: 40px;
     list-style-image: url(../../assets/img-adopcion/adopcion/item-huella.svg);
 }
@@ -223,6 +232,14 @@ footer > .social-media {
 
 
 /*Kirara--------------------*/
+
+#adoption-kirara{
+    display: grid;
+    grid-template:"header" 80px
+                  "main" auto
+                  "footer" auto;
+}
+
 .bton-folder{
     text-align: center;
 }
@@ -355,4 +372,69 @@ footer > .social-media {
     color: var(--white-color);
     margin-right: -25px;
     z-index: 2;
+}
+
+
+
+/*Formulario--------------------------------*/
+
+#adoption-formulary{
+    display: grid;
+    grid-template:"header" 80px
+                  "main" auto
+                  "footer" auto;
+}
+main{
+    padding: 5px;
+}
+
+#main-adoption-form{
+    width: 100%;
+}
+
+#adoption-form{
+    border: 3px solid var(--blue-light);
+    padding: 5px;
+    width: 100%;
+}
+
+#adoption-form textarea{
+    width: 100%;
+    background-color: var(--blue-light);
+    border: 1.4px solid #8caef1;
+}
+
+#adoption-form table{
+    width: 100%;
+}
+
+#adoption-form table tr{
+    background-color:var(--blue-light);
+    border-left: none;
+}
+
+#adoption-form table thead tr{
+    background-color:var(--white-color);
+    border-left: none;
+}
+
+#adoption-form table td{
+    padding: 5px 5px;
+    text-align: center;
+}
+
+#adoption-form table th{
+    padding: 5px 5px 5px 10px;
+    text-align: left;
+}
+
+#adoption-form p{
+    margin: 10px 0 5px;
+    width: 100%;
+}
+
+.adoption-form-group{
+    width: 75px;
+    margin: 0 auto;
+    padding: 0 5px;
 }
