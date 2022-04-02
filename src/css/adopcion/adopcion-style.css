@@ -49,7 +49,7 @@ header{
     color: var(--white-color);
 }
 
-#banner{
+#adoption-banner{
     grid-area: banner;
 }
 
@@ -71,9 +71,9 @@ footer{
 .container-grid{
     display: grid;
     grid-template:"header" 100px
-                  "banner" auto
+                  "adoption-banner" auto
                   "adoption" auto
-                  "requirement" auto
+                  "adoption-requirement" auto
                   "footer"  250px;
     text-align: center;
 }
@@ -86,7 +86,7 @@ footer{
     margin: 20px;
 }
 
-#banner img{
+#adoption-banner img{
     width: 100%;
 }
 
@@ -98,7 +98,7 @@ button{
     border: none;
 }
 
-.buttons-adoption{
+.adoption-buttons{
     display: flex;
     justify-content: space-around;
     padding: 10px;
@@ -127,7 +127,7 @@ button{
     height: 270px;
 }
 
-.galery-adoption{
+.adoption-galery{
     display: flex;
 }
 
@@ -142,13 +142,13 @@ button{
     margin: 10px 0;
 }
 
-#requirement h1{
+#adoption-requirement h1{
     margin: 10px 0;
 }
 
 .list-requirement ul{
     margin-left: 40px;
-    list-style-image: url(../img/item-huella.svg);
+    list-style-image: url(../../assets/img-adopcion/adopcion/item-huella.svg);
 }
 
 footer{
