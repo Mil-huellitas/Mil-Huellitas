@@ -1,0 +1,3 @@
+.container-2 .card:hover .contentBx{
+  height: 110px;
+}
