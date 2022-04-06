@@ -233,3 +233,14 @@ header{
   transition-delay: 0.75s;
   
 }
+
+
+.cupon{
+  margin: 20px;
+  padding: 5px;
+}
+
+.cupon img{
+  width: 100%;
+  max-width: 100%;
+}
