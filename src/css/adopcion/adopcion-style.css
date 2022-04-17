@@ -206,7 +206,7 @@ p{
 }
 
 #adoption h1{
-    margin-bottom: 12px;
+    margin:12px 0;
 }
 
 #adoption p{
@@ -227,11 +227,12 @@ button{
     padding: 5px 15px;
     border-radius: 10px;
     border: none;
+    margin: 0px 15px;
 }
 
 .adoption-buttons{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 10px;
     margin: 10px 0;
     border-top: 2px dashed var(--blue-medium-color);
@@ -244,6 +245,7 @@ button{
     object-fit: cover;
     border-radius: 10px 10px 0 0;
     border: 1px solid var(--dark-color);
+    transition: all 500ms ease-out;
 }
 
 .image-galery{
@@ -265,8 +267,79 @@ button{
     width: 80%;
     margin: auto;
     height: 270px;
-    background-color: #09ff00;
 }
+
+.pet:hover{
+    border: 4px solid #2970CA;
+}
+
+.image-galery{
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 15px 25px rgba(209, 199, 199, 0.677);
+    cursor: pointer;
+}
+
+.pet .capa{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 3, 124, 0.54);
+    color: white;
+    transition: all 500ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+}
+
+.pet:hover .image-galery>.capa{
+    opacity: 1;
+    visibility: visible;
+}
+
+.pet .capa p{
+    transition: all 1s 600ms ease-out;
+}
+
+.pet .image-galery .capa p{
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+    margin-top: 45%;
+}
+
+.pet:hover .image-galery .capa p{
+    animation: aparecer 1.2s 100ms  forwards;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0.2;
+        margin-top: 100%;
+      }
+
+      25%{
+        color: blueviolet;
+      }
+    
+      100% {
+        transform: scale(1.2);
+      }
+}
+
+.pet:hover .image-galery img{
+    transform: scale(1.2);
+    border-radius: 10px;
+}
+
+.pet .image-galery{
+    border-radius: 6px 6px 0 0;
+}
+
+
+
+
 
 .info-pet{
     display: flex;
@@ -620,27 +693,12 @@ main{
         float: left;
         margin: 10px 42px 0 0;
     }
-    
-    #adoption-requirement{
-        background-color: #09ff00;
-        padding: 10px;
-    }
 
-    
-    #adoption-requirement h1{
-        margin: 10px 0;
-    }
-    
     .list-requirement{
-        background: url(../../assets/img-adopcion/adopcion/huella-rosa.svg) no-repeat;
-        background-size: cover;
+        background-position: right;
+        background-color: #cabdfa;
     }
     
-    .list-requirement ul{
-        text-align: left;
-        margin-left: 40px;
-        list-style-image: url(../../assets/img-adopcion/adopcion/item-huella.svg);
-    }
 
     /*footer-------------------------*/
 
@@ -701,6 +759,19 @@ main{
         background-color: #3b4fcd;
     }
 
+    .img-hero img{
+        width: 40%;
+        float: left;
+        margin: 10px 42px 0 0;
+    }
+
+    .list-requirement{
+        background-position: right;
+        background-color: #e618d8;
+    }
+
+    /*footer-----------------*/
+
      footer{
          font-size: 14.5px;
      }
@@ -724,6 +795,14 @@ main{
  @media screen and (min-width: 1200px){
 
     /*Adoption----------------------*/
+    body{
+        font-size: 18px;
+    }
+
+    h1{
+        font-size:30px;
+        font-weight: bolder;
+    }
 
     .pet{
         width: 90%;
@@ -742,4 +821,9 @@ main{
      .info-pte{
          padding: 0 5%;
      }
+
+    .list-requirement{
+        background-position: right;
+        background-color: #3ae618;
+    }
  }
