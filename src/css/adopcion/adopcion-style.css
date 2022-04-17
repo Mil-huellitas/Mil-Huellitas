@@ -259,6 +259,8 @@ button{
     overflow: hidden;
     overflow-x: scroll;
     scroll-snap-type:mandatory;
+    background: url(../../assets/img-adopcion/adopcion/bg-bolitas.svg);
+    background-size: cover;
 }
 
 .pet{
@@ -267,17 +269,14 @@ button{
     width: 80%;
     margin: auto;
     height: 270px;
-}
-
-.pet:hover{
-    border: 4px solid #2970CA;
+    box-shadow: 1px 1px 4px #000000aa;
+    background-color: #ffffff98;
+    backdrop-filter: blur(4px);
 }
 
 .image-galery{
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 15px 25px rgba(209, 199, 199, 0.677);
-    cursor: pointer;
 }
 
 .pet .capa{
@@ -293,13 +292,13 @@ button{
     text-align: center;
 }
 
+.pet:hover{
+    border: 4px solid #2970CA;
+}
+
 .pet:hover .image-galery>.capa{
     opacity: 1;
     visibility: visible;
-}
-
-.pet .capa p{
-    transition: all 1s 600ms ease-out;
 }
 
 .pet .image-galery .capa p{
@@ -307,10 +306,12 @@ button{
     text-shadow: 2px 2px 2px black;
     text-align: center;
     margin-top: 45%;
+    cursor: pointer;
+    transition: all 1s 600ms ease-out;
 }
 
 .pet:hover .image-galery .capa p{
-    animation: aparecer 1.2s 100ms  forwards;
+    animation: aparecer 800ms forwards;
 }
 
 @keyframes aparecer {
@@ -336,10 +337,6 @@ button{
 .pet .image-galery{
     border-radius: 6px 6px 0 0;
 }
-
-
-
-
 
 .info-pet{
     display: flex;
@@ -456,11 +453,8 @@ footer > .social-media {
 
 /*Kirara--------------------*/
 
-#adoption-kirara{
-    display: grid;
-    grid-template:"header" 80px
-                  "main" auto
-                  "footer" auto;
+#pet h2{
+    margin: 10px;
 }
 
 .bton-folder{
@@ -483,9 +477,10 @@ footer > .social-media {
     padding: 10px;
 }
 
-.kirara{
+.adopt-pet{
     border-radius: 10px;
     height: 350px;
+    box-shadow: 1px 2px 4px #191919;
 }
 
 .info-mascota{
@@ -502,9 +497,78 @@ footer > .social-media {
     text-align: left;
 }
 
-.galery-pet img{
-    border-radius: 10px;
+.slider-galery-pet{
+    max-width: 1000px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
 }
+
+input[type=radio]{
+    display: none;
+}
+
+.slider-galery-pet .container{
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 220px;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-galery-pet .cards{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-galery-pet .card{
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.slider-galery-pet img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+#item-2:checked ~ .cards #selector-1,
+#item-1:checked ~ .cards #selector-3,
+#item-3:checked ~ .cards #selector-2{
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-3:checked ~ .cards #selector-1,
+#item-1:checked ~ .cards #selector-2,
+#item-2:checked ~ .cards #selector-3{
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-1:checked ~ .cards #selector-1,
+#item-2:checked ~ .cards #selector-2,
+#item-3:checked ~ .cards #selector-3{
+    transform: translateX(0) scale(1);
+    z-index: 1;
+}
+
 
 .cat-bton{
     display: flex;
@@ -532,6 +596,15 @@ footer > .social-media {
 
 .step1 h2, .step2 h2{
     margin: 30px 0 15px;
+}
+
+.ocult{
+    display: none;
+}
+
+#adoption-process .bg-documents{
+    background: url(../../assets/img-adopcion/adopcion/bd-documents.svg);
+    background-size: conatin;
 }
 
 #adoption-process h3{
@@ -588,12 +661,12 @@ footer > .social-media {
 
 .btn-enviar i{
     border-radius: 50%;
-    padding: 5px;
+    padding: 7px 10px 5px 6px;
     border: 4px solid var(--blue-light);
     font-size: 20px;
     background-color: var(--blue-dark-color);
     color: var(--white-color);
-    margin-right: -25px;
+    margin-right: -38px;
     z-index: 2;
 }
 
@@ -696,8 +769,44 @@ main{
 
     .list-requirement{
         background-position: right;
-        background-color: #cabdfa;
     }
+    
+    .container{
+        max-height: 260px;
+        max-width: 750px;
+    }
+
+    /*pet-adoption*/
+
+    .process-step1{
+        margin-top: 20px;
+        display: grid;
+        column-gap: 10px;
+        grid-template-columns: 42% auto;
+        grid-template-areas:"step1 documents";
+    }
+
+    .process-step2{
+        margin: 20px 0;
+        border-top: 2px dashed var(--blue-dark-color);
+        padding-top: 10px;
+        display: grid;
+        column-gap: 10px;
+        grid-template-columns: 42% auto;
+        grid-template-areas:"step2 formulario";
+    }
+
+    .step1 .btn-enviar button{
+        padding: 5px 18px 5px 22px;
+    }
+    .step1 .btn-enviar i{
+        padding: 6px 4px 4px 8px;
+    }
+    
+    .step1{
+        padding-top: 5px;
+    }
+
     
 
     /*footer-------------------------*/
@@ -767,7 +876,93 @@ main{
 
     .list-requirement{
         background-position: right;
-        background-color: #e618d8;
+    }
+
+    .slider-galery-pet{
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        padding: 0;
+    }
+    
+    .container{
+        min-width: 100%;
+        min-height: 250px;
+        justify-content: space-between;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .slider-galery-pet .cards{
+        width: 100%;
+        min-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .slider-galery-pet .card{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        cursor: auto;
+        margin: 1%;
+    }
+    
+    .slider-galery-pet img{
+        width: 30%;
+    }
+    
+    #item-2:checked ~ .cards #selector-1,
+    #item-1:checked ~ .cards #selector-3,
+    #item-3:checked ~ .cards #selector-2{
+        opacity: 1;
+    }
+    
+    #item-3:checked ~ .cards #selector-1,
+    #item-1:checked ~ .cards #selector-2,
+    #item-2:checked ~ .cards #selector-3{
+        opacity: 1;
+    }
+
+    /*pet-adoption*/
+    #adoption-process{
+        background-color: #FAC0BD;
+    }
+
+    .bg-documents{
+        display: grid;
+        grid-template-columns: 55% auto;
+        column-gap: 7%;
+        grid-template-areas: "process-step1 process-step2";
+    }
+    
+    .process-step1{
+        margin-top: 5px;
+        display: grid;
+        column-gap: 10px;
+        grid-template-areas: none;
+        grid-template-columns:auto;    
+    }
+
+    .process-step2{
+        margin: 20px 0;
+        border-top: none;
+        padding-top: 10px;
+        display: grid;
+        column-gap: 10px;
+        grid-template-columns:auto;
+        grid-template-areas:none;
+    }
+
+    .ocult{
+        display: block;
+        text-align: left;
+        font-size: 30px;
+    }
+
+    .h2-ocult{
+        display: none;
     }
 
     /*footer-----------------*/
@@ -807,7 +1002,7 @@ main{
     .pet{
         width: 90%;
         margin: auto;
-        height: 360px;
+        height: 380px;
         background-color: #3bcd58;
     }
 
@@ -821,9 +1016,4 @@ main{
      .info-pte{
          padding: 0 5%;
      }
-
-    .list-requirement{
-        background-position: right;
-        background-color: #3ae618;
-    }
  }

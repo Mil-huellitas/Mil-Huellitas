@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/adopcion/style.css">
+    <link rel="stylesheet" href="../css/adopcion/adopcion-style.css">
     <script src="https://kit.fontawesome.com/98bd21cde9.js" crossorigin="anonymous"></script>
     <link type="image/x-icon" href="../assets/img-adopcion/adopcion/logo.svg" rel="icon">
     <title>Kirara | Mil huellitas</title>
@@ -37,7 +37,7 @@
     
     <main id="pet">
         <h2>Kirara</h2>
-        <img class="kirara" src="../assets/img-adopcion/adopcion/galery/kirara.svg" alt="">
+        <img class="adopt-pet kirara" src="../assets/img-adopcion/adopcion/galery/kirara.svg" alt="">
         <div class="bton-folder">
             <a href="#"> <button class="btn1"> Descripción </button></a>
             <a href="#"> <button class="btn2"> Historia </button></a>
@@ -59,31 +59,47 @@
             </ul>
         </div>
 
-        <div class="galery-pet">
-            <div>
-                <img src="../assets/img-adopcion/adopcion/galery/kirara1.svg" alt="">
+        <div class="slider-galery-pet">
+
+            <div class="container">
+                <input type="radio" name="slider" id="item-1" checked>
+                <input type="radio" name="slider" id="item-2">
+                <input type="radio" name="slider" id="item-3">
+    
+                <div class="cards">
+                    <label class="card" for="item-1" id="selector-1">
+                        <img src="../assets/img-adopcion/adopcion/galery/kirara1.svg">
+                    </label>
+                    <label class="card" for="item-2" id="selector-2">
+                        <img src="../assets/img-adopcion/adopcion/galery/kirara2.svg">
+                    </label>
+                    <label class="card" for="item-3" id="selector-3">
+                        <img src="../assets/img-adopcion/adopcion/galery/kirara3.svg">
+                    </label>
+    
+                </div>
             </div>
-            <div>
-                <img src="../assets/img-adopcion/adopcion/galery/kirara2.svg" alt="">
-            </div>
-            <div>
-                <img src="../assets/img-adopcion/adopcion/galery/kirara3.svg" alt="">
-            </div>
+    
         </div>
 
         <div class="cat-bton">
-        <a href="#"><button class="bton-cat">Sigue mirando más gatitos <img src="../assets/img-adopcion/adopcion/galery/btongato.svg" alt=""></button></a></div>
+        <a href="#"><button class="bton-cat">Sigue mirando más gatitos <img src="../assets/img-adopcion/adopcion/galery/btongato.svg"alt=""></button></a></div>
 
         <section id="adoption-process">
+           
+            <h2 class="ocult">Inicia el proceso de adopción</h2>     
+
+            <div class="bg-documents">   
+            <article class="process-step1">
             <div class="step1">
-                <h2>Inicia el proceso de adopción</h2>
-                <h2>Paso 1</h2>
+                <h2 class="h2-ocult">Inicia el proceso de adopción</h2>
+                <h2 class="subtitle">Paso 1</h2>
                 <img src="../assets/img-adopcion/adopcion/huella.svg" alt="">
                 <div class="btn-enviar">
-                    <i class="fa-solid fa-download"></i>
+                    <i class="fa-solid fa-file-pen"></i>
                     <a href="formulario.html"><button>Diligenciar formulario</button></a></div>
             </div>
-            <div>
+            <div class="documents">
                 <h3>DOCUMENTOS ADICIONALES</h3>
                 <p>A continuación encontrará el listado de documentos y formatos descargables que debe consultar para su proceso de adopción:</p>
                 <ul>
@@ -92,17 +108,19 @@
                     <li>Instrucciones para adoptantes de animales cachorros.</li>
                     <li>Instrucciones para adoptantes de animales adultos.</li>
                 </ul>
-            </div>
+            </div></article>
 
+            <article class="process-step2">
             <div class="step2">
                 <h2>Paso 2</h2>
                     <div class="huellas-step2">
-                        <img src="../assets/img-adopcion/adopcion/huella.svg" alt="">
-                        <img src="../assets/img-adopcion/adopcion/huella.svg" alt="">
+                        <img class="huella1" src="../assets/img-adopcion/adopcion/huella.svg" alt="">
+                        <img class="huella2" src="../assets/img-adopcion/adopcion/huella.svg" alt="">
                     </div>
-                    <p>Una vez diligenciado, completa los campos y adjunta el formulario de adopción en formato .docx o .pdf.</p>
+                    <p>Una vez diligenciado, completa los campos y espera nuestra respuesta.</p>
             </div>
 
+            <div class="formulario">
             <form action="post">
                 <div class="form-group">
                     <label for=""></label>
@@ -117,22 +135,25 @@
                     <input type="text" placeholder="&nbsp;Correo electrónico">
                 </div>
             </form>
+            
 
             <div class="btn-enviar">
                 <i class="fa-solid fa-paper-plane"></i>
                 <a href="#"><button>Enviar solicitud</button></a>
-            </div>
+            </div></article>
+        </div></div>
 
-            <div class="info-adicional">
+        </section>
+
+        <div class="info-adicional">
                 <img src="../assets/img-adopcion/adopcion/reponsabilidades.svg" alt="">
                 <img src="../assets/img-adopcion/adopcion/cuidados.svg" alt="">
             </div>
-
-        </section>
     </main>
 
     <footer>
         <div class="info-footer">
+            <div class="info-pte pte1">
             <div class="info">
                 <img src="../assets/img-adopcion/adopcion/footer/locate.svg" alt="">
                 <div>
@@ -147,6 +168,9 @@
                     <p>333 222 1100 - (601) 444 5566</p>
                 </div>
             </div>
+            </div>
+
+            <div class="info-pte pte2">
             <div class="info">
                 <img src="../assets/img-adopcion/adopcion/footer/gmail.svg" alt="">
                 <div>
@@ -162,6 +186,8 @@
                 </div>
             </div>
         </div>
+    </div>
+
         <div class="loyal-text">
             <p><strong>Textos legales</strong></p>
             <p>Políticas de privacidad</p>
