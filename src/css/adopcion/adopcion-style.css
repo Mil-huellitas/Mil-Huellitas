@@ -36,7 +36,7 @@ nav {
     background-image: url(../../assets/img-adopcion/adopcion/header-backgrond.png);
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 10;
 }
 
 main {
@@ -221,13 +221,44 @@ p{
     padding: 0;
 }
 
-button{
+#container-galery label{
     background-color: var(--blue-medium-color);
     color: var(--white-color);
     padding: 5px 15px;
     border-radius: 10px;
     border: none;
     margin: 0px 15px;
+}
+
+#container-galery .label-todos{
+    margin-left: 20%;
+}
+
+.line-dashed{
+    margin: auto;
+    width: 95%;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+#perros:checked ~ .adoption-galery .cat{
+    display: none;
+}
+
+#perros:checked ~ .label-dog{
+    background-color: #1B3C5A;
+}
+
+#gatos:checked ~ .label-cat{
+    background-color: #1B3C5A;
+}
+
+#todos:checked ~ .label-todos{
+    background-color: #1B3C5A;
+}
+
+#gatos:checked ~ .adoption-galery .dog{
+    display: none;
 }
 
 .adoption-buttons{
@@ -253,6 +284,7 @@ button{
 }
 
 .adoption-galery{
+    margin-top: 20px;
     display: grid;
     row-gap: 15px;
     grid-template-columns: 50% 50% 50% 50%;
@@ -459,17 +491,23 @@ footer > .social-media {
 
 .bton-folder{
     text-align: center;
+    margin-bottom: 0;
 }
 
 .btn1, .btn2{
     border-radius: 10px 10px 0 0 ;
-    padding: 5px 20px 10px;
-    margin-bottom: -2px;
+    padding: 5px 20px 2px;
+    margin-bottom: 0px;
     font-size: 16px;
 }
 
 .btn2{
     background-color: var(--blue-dark-color);
+    opacity: 0.4;
+}
+
+.btn2:hover{
+    opacity: 1;
 }
 
 #pet{
@@ -486,11 +524,19 @@ footer > .social-media {
 .info-mascota{
     background-color: var(--blue-medium-color);
     border-radius: 10px;
+    padding: 10px;
+}
+
+.history-pet{
+    display: none;
+    background-color: var(--dark-color);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .folder-pet{
     background-color: var(--blue-light);
-    margin: 20px;
+    margin:0 10px;
     padding: 10px;
     list-style: none;
     border-radius: 10px;
@@ -767,6 +813,10 @@ main{
         margin: 10px 42px 0 0;
     }
 
+    #container-galery .label-todos{
+        margin-left: 30%;
+    }
+
     .list-requirement{
         background-position: right;
     }
@@ -872,6 +922,10 @@ main{
         width: 40%;
         float: left;
         margin: 10px 42px 0 0;
+    }
+
+    #container-galery .label-todos{
+        margin-left: 40%;
     }
 
     .list-requirement{
